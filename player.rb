@@ -17,15 +17,18 @@ class Player
     if rank >= 4
       bet = game_state['players'][5]['stack']
     elsif rank == 3
-      bet = game_state['players'][5]['stack'] / 2
-    elsif rank == 2
-      if bet <= game_state['players'][5]['stack']
-        bet = call * 4
-      else
-        bet = game_state['players'][5]['stack']
+      bet = call * 2
+      if bet > game_state['players'][5]['stack']
+        bet = call
       end
+    # elsif rank == 2
+    #   if bet <= game_state['players'][5]['stack']
+    #     bet = call * 4
+    #   else
+    #     bet = game_state['players'][5]['stack']
+    #   end
     else
-      if call <= 200
+      if call <= 150
         return call
       end 
     end
