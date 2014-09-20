@@ -26,7 +26,7 @@ class Player
       end
     else
       if call <= 100
-        call
+        return call
       end 
     end
     bet
