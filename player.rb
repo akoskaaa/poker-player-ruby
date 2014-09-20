@@ -33,6 +33,7 @@ class Player
     h = Hash.new(0)
     high_card = false
     pair = false
+    high_pair = false
     two_pair = false
     three = false
     straight = false
@@ -53,6 +54,9 @@ class Player
     #Pair, Two pair, Three, Four
     h.each do |k, v|
       if v == 2
+        if k == "A" or c == "K" or c == "Q" or c == "J"
+          high_pair = true
+        end
         if pair == true
           two_pair == true
         end
@@ -71,22 +75,24 @@ class Player
       return 1
     elsif pair
       return 2
-    elsif two_pair
+    elsif high_pair
       return 3
-    elsif three
+    elsif two_pair
       return 4
-    elsif straight
+    elsif three
       return 5
-    elsif flush
+    elsif straight
       return 6
-    elsif full_house
+    elsif flush
       return 7
-    elsif four
+    elsif full_house
       return 8
-    elsif straight_flush
+    elsif four
       return 9
-    elsif royal_flush
+    elsif straight_flush
       return 10
+    elsif royal_flush
+      return 11
     else 
       return 0
     end
