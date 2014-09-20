@@ -17,8 +17,10 @@ class Player
     p 'counter', $counter, 'rank', rank, 'call', call, 'stack', game_state['players'][5]['stack'], 'cards', cards
     p '##########'
     if rank >= 5
+      p '#### higher or equal 5'
       bet = game_state['players'][5]['stack']
     elsif rank == 4 or rank == 3
+      p '#### 4 or 3'
       bet = call * 2
       if call >= game_state['players'][5]['stack']
         bet = 0
@@ -30,6 +32,7 @@ class Player
     #     bet = game_state['players'][5]['stack']
     #   end
     else
+      p '#### 2,1,0 shit'
       if call <= 150
         $counter += 1
         if $counter > 3
