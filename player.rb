@@ -10,8 +10,10 @@ class Player
     cardhelper = CardHelpers.new
     cards = cardhelper.get_cards_from_state(game_state)
     rank = evaluate_card(cards)
-    if rank == 1
+    if rank == 2
       bet = game_state['players'][5]['stack']
+    elsif rank == 1
+      bet = 100
     end
     bet
   end
@@ -38,9 +40,11 @@ class Player
         three == true
       end 
     end
-    if high_card or pair or three
-      return 1 
-    else
+    if pair or three
+      return 2
+    elsif high_card
+      return 1
+    else 
       return 0
     end
   end
