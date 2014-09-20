@@ -1,9 +1,11 @@
 
 require_relative 'helpers.rb'
+require_relative 'const.rb'
 
 class Player
 
   VERSION = "Default Ruby folding player"
+  $counter = 0
 
   def bet_request(game_state)
     call =  game_state['current_buy_in'] - game_state['players'][5]['bet']
@@ -12,7 +14,7 @@ class Player
     cards = cardhelper.get_cards_from_state(game_state)
     rank = evaluate_card(cards)
     p '##########'
-    p game_state['players'][5]['name']
+    p $counter
     p '##########'
     if rank >= 4
       bet = game_state['players'][5]['stack']
@@ -29,6 +31,10 @@ class Player
     #   end
     else
       if call <= 150
+        $counter += 1
+        if $counter > 3
+          return 0
+        end
         return call
       end 
     end
