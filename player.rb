@@ -46,7 +46,7 @@ class Player
     #   end
     else
       p '#### 2,1,0 shit'
-      if call <= 150
+      if call <= 50
         $counter += 1
         if $counter > 3
           $counter = 0
