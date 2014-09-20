@@ -22,7 +22,7 @@ class Player
     elsif rank == 4 or rank == 3
       p '#### 4 or 3'
       bet = call
-      if call >= game_state['players'][5]['stack']
+      if call >= game_state['players'][5]['stack'] / 0.5
         bet = 0
       end
     # elsif rank == 2
