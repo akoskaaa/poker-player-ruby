@@ -19,7 +19,7 @@ class Player
 
   end
 
-  def evaluate_card(cards):
+  def evaluate_card(cards)
     h = Hash.new(0)
     high_card = false
     pair = false
@@ -42,8 +42,5 @@ class Player
     else
       return 0
     end
-
-
-
   end
 end
