@@ -19,8 +19,6 @@ class Player
       else
         bet = game_state['players'][5]['stack']
       end
-    elsif rank == 1
-      bet = call
     end
     bet
   end
