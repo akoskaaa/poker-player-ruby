@@ -80,6 +80,9 @@ class Player
     royal_flush = false
 
     h = cardhelper.fill_card_hash(cards)
+    p '!!!!!!!!'
+    p h
+    p '!!!!!!!!'
 
     flush = cardhelper.is_flush(cards)
 
