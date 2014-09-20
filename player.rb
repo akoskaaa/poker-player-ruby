@@ -6,7 +6,7 @@ class Player
 
   def bet_request(game_state)
     parsed_state = JSON.parse(game_state)
-  	700
+  	100
   end
 
   def showdown(game_state)
