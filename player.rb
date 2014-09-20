@@ -90,13 +90,13 @@ class Player
     #Pair, Two pair, Three, Four
     h.each do |k, v|
       if v == 2
-        if k == "A" or k == "K" or k == "Q" or k == "J"
-          high_pair = true
-        end
-        if pair == true or high_pair == true
+        pair == true
+        # if k == "A" or k == "K" or k == "Q" or k == "J"
+        #   high_pair = true
+        # end
+        if pair == true
           two_pair == true
         end
-        pair == true
       elsif v == 3
         three == true
       elsif v == 4
