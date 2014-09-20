@@ -7,12 +7,11 @@ class Player
 
   def bet_request(game_state)
     bet = 0
-    game_state['players'][5]['hole_cards'].each do | card |
-      if card['rank'] == "A"
-        bet = 1000
-      else
-        bet = 100
-      end
+    cardhelper = CardHelpers.new
+    cards = cardhelper.get_cards_from_state(game_state)
+    rank = evaluate_card(cards)
+    if rank == 1
+      bet = game_state['players'][5]['stack']
     end
     bet
   end
