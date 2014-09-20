@@ -19,6 +19,10 @@ class Player
       else
         bet = game_state['players'][5]['stack']
       end
+    else
+      if call <= 100
+        call
+      end 
     end
     bet
   end
