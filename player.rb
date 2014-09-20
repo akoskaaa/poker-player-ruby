@@ -88,6 +88,7 @@ class Player
 
     #Pair, Two pair, Three, Four
     h.each do |k, v|
+      p 'k, v   ', k, v
       if v == 2
         pair == true
         # if k == "A" or k == "K" or k == "Q" or k == "J"
