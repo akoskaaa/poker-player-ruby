@@ -37,6 +37,9 @@ class Player
   end
 
   def evaluate_card(cards)
+
+    cardhelper = CardHelpers.new
+
     h = Hash.new(0)
     high_card = false
     pair = false
@@ -50,13 +53,9 @@ class Player
     straight_flush = false
     royal_flush = false
 
-    #High card
-    cards.each do |c|
-      if c == "A" or c == "K" or c == "Q" or c == "J"
-        high_card = true
-      end 
-      h[c] +=1
-    end
+    h = cardhelper.fill_card_hash(cards)
+
+    flush = cardhelper.is_flush(cards)
 
     #Pair, Two pair, Three, Four
     h.each do |k, v|

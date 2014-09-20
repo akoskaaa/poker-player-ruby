@@ -78,3 +78,53 @@ describe Player do
     end
 
 end
+
+describe CardHelpers do 
+
+  describe '#cards_are_same_color' do
+
+    it 'returns boolean' do
+
+      cards = [
+        {
+            "rank" => "4",
+            "suit" => "spades"
+        },
+        {
+            "rank" => "A",
+            "suit" => "hearts"
+        },
+        {
+            "rank" => "6",
+            "suit" => "clubs"
+        }
+      ]
+
+      expect (subject.cards_are_same_color(cards, 1)).is_a? TrueClass
+
+    end
+
+    it 'returns right amount' do
+
+      cards = [
+        {
+            "rank" => "4",
+            "suit" => "hearts"
+        },
+        {
+            "rank" => "A",
+            "suit" => "hearts"
+        },
+        {
+            "rank" => "6",
+            "suit" => "clubs"
+        }
+      ]
+
+      expect (subject.cards_are_same_color(cards, 2)).is_a? TrueClass
+
+    end
+
+  end
+
+end
