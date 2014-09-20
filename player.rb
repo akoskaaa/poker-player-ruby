@@ -1,4 +1,6 @@
 
+require_relative 'helpers.rb'
+
 class Player
 
   VERSION = "Default Ruby folding player"
@@ -12,7 +14,7 @@ class Player
         bet = 100
       end
     end
-    p bet
+    bet
   end
 
   def showdown(game_state)
