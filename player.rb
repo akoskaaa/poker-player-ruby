@@ -4,8 +4,11 @@ class Player
   VERSION = "Default Ruby folding player"
 
   def bet_request(game_state)
-    parsed_state = JSON.parse(game_state)
-  	100
+    for card in game_state[:palyers][5][:hole_cards]:
+      if card[:rank] == "A":
+        1000
+      else:
+        100
   end
 
   def showdown(game_state)
