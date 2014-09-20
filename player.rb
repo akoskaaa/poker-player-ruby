@@ -14,7 +14,7 @@ class Player
     cards = cardhelper.get_cards_from_state(game_state)
     rank = evaluate_card(cards)
     p '##########'
-    p 'rank', rank, 'call', call, 'stack', game_state['players'][5]['stack']
+    p 'rank', rank, 'call', call, 'stack', game_state['players'][5]['stack'], 'cards', cards
     p '##########'
     if rank >= 4
       bet = game_state['players'][5]['stack']
