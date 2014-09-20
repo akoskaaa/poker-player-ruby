@@ -89,7 +89,7 @@ class Player
         if k == "A" or k == "K" or k == "Q" or k == "J"
           high_pair = true
         end
-        if pair == true
+        if pair == true or high_pair == true
           two_pair == true
         end
         pair == true
