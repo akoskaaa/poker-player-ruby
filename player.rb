@@ -105,7 +105,7 @@ class Player
     end
 
     #Full house
-    full_house = pair and three
+    #full_house = pair and three
 
     if royal_flush
       return 11
