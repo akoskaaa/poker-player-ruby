@@ -71,28 +71,28 @@ class Player
     #Full house
     full_house = pair and three
 
-    if high_card
-      return 1
-    elsif pair
-      return 2
-    elsif high_pair
-      return 3
-    elsif two_pair
-      return 4
-    elsif three
-      return 5
-    elsif straight
-      return 6
-    elsif flush
-      return 7
-    elsif full_house
-      return 8
-    elsif four
-      return 9
+    if royal_flush
+      return 11
     elsif straight_flush
       return 10
-    elsif royal_flush
-      return 11
+    elsif four
+      return 9
+    elsif full_house
+      return 8
+    elsif flush
+      return 7
+    elsif straight
+      return 6
+    elsif three
+      return 5
+    elsif two_pair
+      return 4
+    elsif high_pair
+      return 3
+    elsif pair
+      return 2
+    elsif high_card
+      return 1
     else 
       return 0
     end
