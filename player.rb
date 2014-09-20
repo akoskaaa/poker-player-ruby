@@ -24,12 +24,12 @@ class Player
       else
         bet = game_state['players'][5]['stack']
       end
-    end
-    if call <= 100
-      call
     else
-      bet
-    end 
+      if call <= 100
+        call
+      end 
+    end
+    bet
   end
 
   def showdown(game_state)
