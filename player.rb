@@ -12,10 +12,23 @@ class Player
     bet = 0
     cardhelper = CardHelpers.new
     cards = cardhelper.get_cards_from_state(game_state)
+    table_cards = cardhelper.get_cards_from_table(game_state)
+    hand_cards = cardhelper.get_cards_from_hand(game_state)
     rank = evaluate_card(cards)
+
+
     p '##########'
     p 'counter', $counter, 'rank', rank, 'call', call, 'stack', game_state['players'][5]['stack'], 'cards', cards
     p '##########'
+
+    if table_cards.length > 2
+      table_rank = evaluate_card(table_cards)
+      hand_rank = evaluate_card(hand_cards)
+      if table_rank >= 2 and hand_rank < 3 and rank < 5
+        return 0
+      end
+    end
+
     if rank >= 5
       p '#### higher or equal 5'
       bet = game_state['players'][5]['stack']
