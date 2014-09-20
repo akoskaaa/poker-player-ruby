@@ -4,11 +4,15 @@ class Player
   VERSION = "Default Ruby folding player"
 
   def bet_request(game_state)
-    for card in game_state[:palyers][5][:hole_cards]:
-      if card[:rank] == "A":
-        1000
-      else:
-        100
+    bet = 0
+    game_state['players'][5]['hole_cards'].each do | card |
+      if card['rank'] == "A"
+        bet = 1000
+      else
+        bet = 100
+      end
+    end
+    p bet
   end
 
   def showdown(game_state)
