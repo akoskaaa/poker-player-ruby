@@ -7,8 +7,6 @@ describe Player do
 
     describe '#bet_request' do
 
-        
-
         it 'should return an int' do
             game_state = '{
               "players":[
