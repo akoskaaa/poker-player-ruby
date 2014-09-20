@@ -55,7 +55,7 @@ class CardHelpers
       high_card = false
 
       c = card['rank']
-      if c == "A" or c == "K" or c == "Q" or c == "J"
+      if c == "14" or c == "13" or c == "12" or c == "11"
         high_card = true
       end 
 
@@ -69,6 +69,16 @@ class CardHelpers
 
         cards.each do |card|
             c = card['rank']
+            if c == "J"
+                c = "11"
+            elsif c == "Q"
+                c = "12"
+            elsif c == "K"
+                c = "13"
+            elsif c == "A"
+                c = "14"
+            end
+
             h[c] += 1
         end
 
@@ -83,6 +93,52 @@ class CardHelpers
     end
 
     def close_to_flush(game_state)
+
+    end
+
+    def is_straight(cards)
+
+        if cards.length < 5
+            return false
+        end
+        
+        card_ranks = fill_card_hash(cards)
+        card_numbers = filter_cards(card_ranks)
+        
+        if cards.length == 5
+            return is_straight_from(0, card_numbers)
+        elsif cards.length == 6
+            return is_straight_from(0, card_numbers) || is_straight_from(1, card_numbers)
+        elsif cards.length == 7
+            return is_straight_from(0, card_numbers) || is_straight_from(1, card_numbers) || is_straight_from(2, card_numbers)
+        end
+            
+        return false 
+
+    end
+
+    def is_straight_from(from, card_numbers)
+
+        for i in (from..from+3)
+
+            if !(card_numbers[i] == card_numbers[i + 1] - 1)
+                return false
+            end
+
+        end
+
+        return true
+
+    end
+
+    def filter_cards(card_ranks)
+
+        keys = card_ranks.keys
+        keys_as_ints = keys.collect{|i| i.to_i}
+
+        keys_as_ints.sort!
+
+        return keys_as_ints
 
     end
 

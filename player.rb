@@ -83,6 +83,10 @@ class Player
 
     flush = cardhelper.is_flush(cards)
 
+    straight = cardhelper.is_straight(cards)
+
+    straight_flush = flush && straight
+
     #Pair, Two pair, Three, Four
     h.each do |k, v|
       if v == 2
