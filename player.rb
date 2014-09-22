@@ -90,6 +90,7 @@ class Player
     h.each do |k, v|
       p 'k, v   ', k, v
       if v == 2
+<<<<<<< Updated upstream
         if pair == true or high_pair
           two_pair = true
         end
@@ -97,6 +98,15 @@ class Player
           high_pair = true
         end
         pair = true
+=======
+        pair == true
+        # if k == "A" or k == "K" or k == "Q" or k == "J"
+        #   high_pair = true
+        # end
+        if pair == true
+          two_pair == true
+        end
+>>>>>>> Stashed changes
       elsif v == 3
         three = true
       elsif v == 4
